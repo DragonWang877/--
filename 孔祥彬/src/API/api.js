@@ -16,4 +16,7 @@ const postLoginSchool = (data) => post("/loginSchool" , data)
 //教师申请
 const gerTeacher = (data) => get("/teacher" , data)
 
-export { postCode, postTellLogin, getSchoolList, postLoginSchool, gerTeacher }
+//教师信息
+const gerTearchInfor = (data) => get("/tearchInfor" , data)
+
+export { postCode, postTellLogin, getSchoolList, postLoginSchool, gerTeacher, gerTearchInfor }

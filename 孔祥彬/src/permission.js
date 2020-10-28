@@ -29,6 +29,7 @@ next(error): (2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导
 */
 
 router.beforeEach((to, from, next) => {
+    console.log(to, from)
     //每次守卫 重置我们的路由记录 获取本地路由
     let paths = JSON.parse(localStorage.getItem("router")) || [];
     allPath = ["/", "/login"]
@@ -43,7 +44,7 @@ router.beforeEach((to, from, next) => {
         next();
     } else {
         // next({ path: from.path });
-        // router.go(-1)
+        router.go(-1)
     }
 });
 

@@ -27,22 +27,29 @@ const routes = [
             {
                 // 当 /singleAnalysis 匹配成功，
                 // singleAnalysis 会被渲染在 Home 的 <router-view> 中
-                path: '/singleAnalysis',
-                name: '/singleAnalysis',
-                component: () => import('@/page/singleAnalysis/index.vue')
+                path: 'singleAnalysis',
+                name: 'singleAnalysis',
+                component: () => import('@/page/singleAnalysis/index.vue'),
+                children:[
+                    {
+                        path: 'singleAnalysis/analyse',
+                        name: 'analyse',
+                        component: () => import('@/page/analyse/index.vue'),
+                    },
+                ]
             },
             {
                 // 当 /teacherManagement 匹配成功
                 // teacherManagement 会被渲染在 Home 的 <router-view> 中
-                path: '/teacherManagement',
-                name: '/teacherManagement',
+                path: 'teacherManagement',
+                name: 'teacherManagement',
                 component: () => import('@/page/teacherManagement/index.vue')
             },
             {
                 // 当 applicationManagement 匹配成功
                 // applicationManagement 会被渲染在 Home 的 <router-view> 中
-                path: '/applicationManagement',
-                name: '/applicationManagement',
+                path: 'applicationManagement',
+                name: 'applicationManagement',
                 component: () => import('@/page/applicationManagement/index.vue')
             }
         ]
@@ -70,10 +77,6 @@ const router = new VueRouter({
     mode: "history",
     routes // (缩写) 相当于 routes: routes
 })
-
-
-
-
 
 export default router
 
