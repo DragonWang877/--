@@ -118,11 +118,11 @@ export default {
       this.getopen(this.router);
       this.getactive(this.router[0], this.$route.path);
     } else {
-      this.$router.push({ path: "login" });
-      console.log('123456')
+      this.$router.push({ path: "/login" });
     }
   },
 };
+
 </script>
 
 <style lang="scss">
@@ -168,8 +168,9 @@ export default {
       line-height: 46px;
       height: 46px !important;
     }
-
+   
     .el-aside {
+      
       background-color: #d3dce6;
       color: #333;
       text-align: center;

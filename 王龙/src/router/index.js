@@ -19,24 +19,27 @@ import VueRouter from 'vue-router';
 // 我们晚点再讨论嵌套路由。
 // name在跳转的时候有用
 const routes = [
-  { path: '/',name:'home', component: () => import('@/page/home/index') ,
-  children: [
-    {
-      path: '/once',
-      component:  () => import('@/page/onceAnalyze/index')
-    },
-    {
-      path: '/teacher',
-      component: () => import('@/page/teacher/index')
-    },
-    {
-      path: '/apply',
-      component: () => import('@/page/apply/index')
-    }
-  ]
-},
-  { path:'/login',name:'login',component:() => import('@/page/login/index')},
-  { path:'*',name:'err',component:() => import('@/page/err/index')},
+  {
+    path: '/', name: 'home', component: () => import('@/page/home/index'),
+    children: [
+      {
+        path: 'once', component: () => import('@/page/onceAnalyze/index'),
+        children: [{
+          path: 'anlyze', name: 'anlyze', component: () => import('@/page/anlyze/index'),
+        }]
+      },
+      {
+        path: '/teacher',
+        component: () => import('@/page/teacher/index')
+      },
+      {
+        path: '/apply',
+        component: () => import('@/page/apply/index')
+      }
+    ]
+  },
+  { path: '/login', name: 'login', component: () => import('@/page/login/index') },
+  { path: '*', name: 'err', component: () => import('@/page/err/index') },
 ]
 
 

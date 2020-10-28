@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <Dialog :dialogVisible="dialogVisible" :userId="userId"/>
+    <Dialog :dialogVisible="dialogVisible" :userId="userId" v-on:close="dialogVisible=false"/>
   </div>
 </template>
 
@@ -117,8 +117,10 @@ export default {
       }).then((res) => {
         if (res.data.userInfo.code === 1) {
           //登陆成功 存入用户的信息
+           this.dialogVisible = true;
+          console.log(1)
           localStorage.setItem("user", JSON.stringify(res.data.userInfo));
-          this.dialogVisible = true;
+         
           this.userId = res.data.userInfo.id;
           // this.getUserPermission();
         } else {
@@ -211,15 +213,6 @@ export default {
       }
     }
   }
-  .dialog {
-    .el-radio {
-      display: block;
-      margin: 10px;
-      .el-radio__input {
-        float: right;
-        margin-left: 20px;
-      }
-    }
-  }
+ 
 }
 </style>

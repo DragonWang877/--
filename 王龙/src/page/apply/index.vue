@@ -1,5 +1,5 @@
 <template>
-  <div id="teacher" v-loading="loading">
+  <div id="apply" v-loading="loading">
     <div class="header">
       <span class="text">手机号码：</span>
       <el-input
@@ -68,9 +68,9 @@
   </div>
 </template>
 <script>
-import { _teacherApply } from "@/api/api";
+import { _ApplicationManagement } from "@/api/api";
 export default {
-  name: "Teacher",
+  name: "Apply",
   data() {
     return {
       tableData: [],
@@ -84,7 +84,7 @@ export default {
   },
   methods: {
     teacherApply() {
-      _teacherApply(this.page).then((res) => {
+      _ApplicationManagement(this.page).then((res) => {
         let { data } = res;
         this.tableData = data.list;
         this.total = data.num;
@@ -122,7 +122,6 @@ export default {
   mounted: function () {
     this.loading = true;
     this.teacherApply();
-    this.teacherApply();
     setTimeout(() => {
       this.loading = false;
     }, 1500);
@@ -130,7 +129,7 @@ export default {
 };
 </script>
 <style lang="scss">
-#teacher {
+#apply {
   width: 100%;
   height: 100%;
   position: relative;

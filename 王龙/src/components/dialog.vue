@@ -51,12 +51,10 @@ export default {
   methods: {
     //确认登陆
     postSchoolRouter() {
-      console.log(this.userId, this.schoolactive);
       _postSchoolRouter({
         userId: this.userId,
         id: this.schoolactive,
       }).then((res) => {
-        console.log(res);
          this.close()
         //登陆成功 存入用户的路由权限
         localStorage.setItem("router", JSON.stringify(res.data.data));
@@ -73,7 +71,6 @@ export default {
     getUserPermission(id) {
       _getUserPermission({ id: id }).then((res) => {
         this.list = res.data;
-        console.log(res.data);
         this.schoolactive = res.data.length > 0 ? res.data[0].id : "";
       });
     },
@@ -82,8 +79,17 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="scss">
+ .dialog {
+    .el-radio {
+      display: block;
+      margin: 10px;
+      .el-radio__input {
+        float: right;
+        margin-left: 20px;
+      }
+    }
+  }
 
 
 

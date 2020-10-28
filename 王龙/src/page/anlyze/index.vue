@@ -1,10 +1,10 @@
 <template>
-  <div id="onceAnalyze">我是单次分析页面</div>
+  <div id="anlyze"></div>
 </template>
 
 <script>
 export default {
- name:'OnceAnalyze'
+ name:'Anlyze'
 }
 </script>
 

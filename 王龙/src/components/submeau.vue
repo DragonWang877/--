@@ -23,7 +23,6 @@ export default {
   },
   methods: {},
   mounted() {
-console.log(this.children,'111111111')
   },
 };
 </script>

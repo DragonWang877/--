@@ -16,20 +16,18 @@ const all = (data) => {
 
 
 router.beforeEach((to, from, next) => {
-
   const routers = JSON.parse(localStorage.getItem("router")) || [];
-  allrouter = ['/', '/login'];
+  allrouter = ['/', '/login', '/once/anlyze'];
   if (routers.length === 0) {
     localStorage.clear();
   }
   all(routers);
-  console.log(from,'from')
   if (allrouter.indexOf(to.path) >= 0) {
     next()
   } else {
     next(from.path)
     // router.go(-1);
-    console.log('返回一层')
+
   }
 })
 
